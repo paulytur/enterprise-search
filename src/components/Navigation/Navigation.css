@@ -1,0 +1,17 @@
+.Navigation nav{
+    padding:20px 27px;
+}
+
+.Navigation input[type=text]{
+    border-radius: 250px;
+    height: 45px;
+    width: 630px;
+    padding: 0px 20px;
+    margin-right: 670px;
+}
+
+
+.Navigation input[type=text]:hover{
+    box-shadow: 2px 2px 2px #cccccc ;
+}
+
