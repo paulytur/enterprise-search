@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import Layout from './hoc/Layout/Layout';
-import Search from './containers/Search/Search';
-import { Container } from 'react-bootstrap';
+import {Switch, Route} from 'react-router-dom'
+import Aux from './hoc/Auxillary/Auxillary';
+import Navigation from './components/Navigation/Navigation'
 
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      // <Container>
-        <Layout>
-          <Search />
-        </Layout>
-      // </Container>
+        <Aux>
+            <Switch>
+              <Route exact path='/' component={Layout}/>
+              {/* <Route exact path='/SearchResult' component={Navigation}/> */}
+            </Switch>
+        </Aux>
     );
   }
 }

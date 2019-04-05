@@ -5,7 +5,9 @@ import NavigationTop from './NavigationTop/NavigationTop';
 
 const navigation = ( props ) => (
     <Aux>
-        <NavigationTop />
+        <NavigationTop 
+            change={props.change}
+            submit={props.submit}/>
         <NavigationBottom />
     </Aux>
     

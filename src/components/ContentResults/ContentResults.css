@@ -1,0 +1,26 @@
+.ContentResult {
+    padding-left: 165px;
+}
+
+.ContentResult p {
+    margin: 0px;
+}
+
+.ContentResult p a{
+    color: #1a0dab;
+    font-size: 18px;
+}
+
+.ContentResult p span{
+    color: #006621;
+    font-size: 12px;
+}
+
+.ZeroResult {
+    padding-left: 150px;
+    color: black
+}
+
+.ZeroResult ul li{
+    font-size: 15px;
+}
