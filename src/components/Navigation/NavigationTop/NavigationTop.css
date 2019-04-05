@@ -1,0 +1,22 @@
+.NavigationTop{
+    width:100%; 
+    padding:5px 30px;
+}
+
+.NavigationTop nav{
+    width:100%; 
+}
+
+.NavigationTop input[type=text]{
+    border-radius: 250px;
+    height: 45px;
+    width: 630px;
+    padding: 0px 20px; 
+    margin-right: 25px;
+}
+
+
+.NavigationTop input[type=text]:hover{
+    box-shadow: 2px 2px 2px #cccccc ;
+}
+

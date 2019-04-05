@@ -1,23 +1,16 @@
 import React from 'react';
-import Logo from '../../hoc/Layout/Logo/Logo';
-import Image from '../../hoc/Layout/Image/Image';
-import classes from './Navigation.css';
-import { Navbar, FormControl, Form } from 'react-bootstrap';
+import Aux from '../../hoc/Auxillary/Auxillary'
+import NavigationBottom from './NavigationBottom/NavigationBottom';
+import NavigationTop from './NavigationTop/NavigationTop';
 
 const navigation = ( props ) => (
-    // <Row >
-        <div className={classes.Navigation}>
-            <Navbar fixed="top" >
-               <Logo />
-                <Form inline>
-                    <FormControl type="text" placeholder="Search" />
-                </Form>
-                <Image />
-                <Logo />
-            </Navbar>
-        </div>
-    // </Row>
-   
+    <Aux>
+        <NavigationTop />
+        <NavigationBottom />
+    </Aux>
+    
 );
 
 export default navigation;
+
+   

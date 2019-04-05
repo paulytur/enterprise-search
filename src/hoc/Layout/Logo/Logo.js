@@ -9,6 +9,8 @@ const logo = (props) => (
             <img
                 src={searchLogo}
                 alt="React Bootstrap logo"
+                width={props.width}
+                height={props.height}
             />
         </Navbar.Brand>
     </div>

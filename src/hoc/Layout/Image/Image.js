@@ -1,11 +1,15 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
+import { Image, Row } from 'react-bootstrap';
 import userImage  from '../../../assets/p.jpg';
 import classes from './Image.css'
 
 const image = (props) => (
+
     <div className = {classes.Image} >
-         <Image src={userImage} />
+        <Row>
+            <Image src={userImage} />
+            {/* <p>Hi, Paul!</p> */}
+        </Row>
     </div>
 
    
