@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Auxillary/Auxillary';
 
-import Layout from '../../hoc/Layout/Layout';
+import Navigation from '../../components/Navigation/Navigation';
 import ContentResults from '../../components/ContentResults/ContentResults';
 
 import axios from '../../axios-instance.js';
@@ -14,8 +14,8 @@ class SearchResult extends Component {
         results: null,
         took: null,
         count: null,
-        loading: true
-        
+        loading: true,
+        showContent: true        
     };
 
    
@@ -56,8 +56,6 @@ class SearchResult extends Component {
                 loading: false
             });
         })
-        
-        // alert('123')
     }
     
     
@@ -79,9 +77,10 @@ class SearchResult extends Component {
 
         return (
              <Aux>
-                <Layout 
+                <Navigation 
                     change={this.changeSearchTermHander}
-                    submit={this.submitSearchTermHandler} />
+                    submit={this.submitSearchTermHandler} 
+                    show = {this.state.showContent}/>
                 {contentResults}
              </Aux>
                 

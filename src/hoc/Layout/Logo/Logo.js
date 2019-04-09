@@ -3,20 +3,21 @@ import searchLogo from '../../../assets/logo.png';
 import { Navbar } from 'react-bootstrap';
 import classes from './Logo.css'
 
-const logo = (props) => (
-    <div className = {classes.Logo}>    
+const display = {
+    display: 'none'
+}
+
+const logo = ( props ) => (
+    <div className = {classes.Logo} style={props.show ? null : display}>    
         <Navbar.Brand href="#home" >
             <img
                 src={searchLogo}
-                alt="React Bootstrap logo"
+                alt="Search"
                 width={props.width}
                 height={props.height}
             />
         </Navbar.Brand>
     </div>
-    // <div className = {classes.Logo} style={{height: props.height}}>
-    //     <img src = {searchLogo} alt="MyBurger" />
-    // </div>
 );
 
 export default logo;

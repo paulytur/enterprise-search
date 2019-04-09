@@ -1,11 +1,12 @@
 .Image{
     padding-left: 50px;
+    margin-top: 5px
 }
 
 .Image img {
     height: 40px;
     width: 40px;
-    margin-left:50px;
+    margin: 5px 25px;
     border-radius: 100px 100px 100px 100px;
 }
 

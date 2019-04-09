@@ -1,0 +1,25 @@
+.HomeLogo {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    transform: translateY(90%);
+  }
+.HomeInput {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    transform: translateY(265%);
+}
+
+.HomeInput input[type=text]{
+    border-radius: 250px;
+    height: 45px;
+    width: 580px;
+    padding: 0px 20px; 
+    margin-right: 25px;
+    background: url('../../assets/googlemic_color_24dp.png') no-repeat scroll 540px 9px;
+}

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import Layout from './hoc/Layout/Layout';
 import {Switch, Route} from 'react-router-dom'
+
+import Aux from './hoc/Auxillary/Auxillary';
+import SearchHome from './containers/SearchHome/SearchHome';
 import SearchResult from './containers/SearchResult/SearchResult';
+
 
 import './App.css';
 
@@ -9,12 +12,12 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-        <Layout>
+        <Aux>
             <Switch>
-              <Route exact path='/' component={SearchResult}/>
-              {/* <Route exact path='/SearchResult' component={Navigation}/> */}
+              <Route exact path='/' component={SearchHome}/>
+              <Route path='/result' component={SearchResult}/>
             </Switch>
-        </Layout>
+        </Aux>
     );
   }
 }
