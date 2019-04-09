@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Auxillary/Auxillary';
 
-import Navigation from '../../components/Navigation/Navigation';
+import Layout from '../../hoc/Layout/Layout';
 import ContentResults from '../../components/ContentResults/ContentResults';
 
 import axios from '../../axios-instance.js';
@@ -79,9 +79,9 @@ class SearchResult extends Component {
 
         return (
              <Aux>
-                <Navigation 
+                <Layout 
                     change={this.changeSearchTermHander}
-                    submit={this.submitSearchTermHandler}/>
+                    submit={this.submitSearchTermHandler} />
                 {contentResults}
              </Aux>
                 
