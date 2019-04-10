@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Home.css'
 import Logo from '../../hoc/Layout/Logo/Logo'
-import { Form, FormControl} from 'react-bootstrap';
+import { Form, FormControl, Button, ButtonToolbar} from 'react-bootstrap';
 const home = ( props ) => (
         <div >
             <div className={classes.HomeLogo}>
@@ -17,6 +17,11 @@ const home = ( props ) => (
                         onChange={props.change} />
                     <span> </span>
                 </Form>
+            </div>
+            <div className={classes.HomeButton}>
+                <ButtonToolbar>
+                    <Button variant="outline-secondary" onClick={props.click}>Search</Button>
+                </ButtonToolbar>
             </div>
         </div>
     

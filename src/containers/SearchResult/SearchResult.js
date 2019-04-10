@@ -18,24 +18,77 @@ class SearchResult extends Component {
         showContent: true        
     };
 
-   
+    componentWillUnmount(){
+        axios.post('logs/logEvent', null, 
+        {
+            headers: 
+            {
+                peopleKey: '1111111',
+                eventId: '4'
+            }
+        })
+        .then(response => {
+            this.props.history.push({
+                pathname: '/',
+            })
 
-    componentWillMount(){
-        axios.get('searches/getallsearches')
-        .then((response)=>{
+            return response.data;
+        })
+        .catch(error => console.log(error));
+    }
+
+    componentDidMount(){
+        const query = new URLSearchParams(this.props.location.search);
+        let searchTerm = "";
+
+        for(let param of query.entries()){
+            searchTerm = param[1]
+        }
+
+        if(searchTerm === "") {
+            this.props.history.push({
+                pathname: '/'
+            })
+        }
+
+        this.setState({
+            searchTerm: searchTerm
+        });
+
+        axios.get('searches/getvaluebysearchterm', { 
+            headers: { 
+                searchTerm: searchTerm
+            }
+        })
+        .then(response => {
             this.setState({
                 results: response.data.documents,
                 took: response.data.took,
                 count: response.data.total,
-                loading: false
+                loading: false,
             });
+        });
+        
+        
+        axios.post('logs/logEvent', null, 
+        {
+            headers: 
+            {
+                peopleKey: '1111111',
+                eventId: '2'
+            }
         })
+        .then(response => {
+            return response.data;
+        })
+        .catch(error => console.log(error));
     }
 
     changeSearchTermHander = (e) => {
         this.setState({
             searchTerm: e.target.value
         });
+       
     }
 
     submitSearchTermHandler = (e) => {
@@ -52,10 +105,38 @@ class SearchResult extends Component {
                 count: response.data.total,
                 loading: false
             });
+            
+            const queryParams = [];
+            queryParams.push(encodeURIComponent('searchTerm') + '=' + encodeURIComponent(this.state.searchTerm))
+            const queryString = queryParams.join('&')
+
+            this.props.history.push({
+                search: '?' + queryString
+            })
         })
     }
     
-    
+    clickLogoHandler = () => {
+        this.props.history.push({
+            pathname: '/',
+        })
+    }
+
+    contentClickHandler = () =>{
+        axios.post('logs/logEvent', null, 
+        {
+            headers: 
+            {
+                peopleKey: '1111111',
+                eventId: '3'
+            }
+        })
+        .then(response => {
+            return response.data;
+        })
+    .catch(error => console.log(error));
+    }
+
     render(){
         let contentResults = null;
         
@@ -64,7 +145,8 @@ class SearchResult extends Component {
                                 results={this.state.results} 
                                 searchTerm = {this.state.searchTerm}
                                 count={this.state.count}
-                                took={this.state.took}/>
+                                took={this.state.took} 
+                                click={this.contentClickHandler}/>
         }
         
        
@@ -77,7 +159,10 @@ class SearchResult extends Component {
                 <Navigation 
                     change={this.changeSearchTermHander}
                     submit={this.submitSearchTermHandler} 
-                    show = {this.state.showContent}/>
+                    show = {this.state.showContent}
+                    click= {this.clickLogoHandler}
+                    value= {this.state.searchTerm}
+                />
                 {contentResults}
              </Aux>
                 

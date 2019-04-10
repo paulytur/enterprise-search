@@ -9,12 +9,13 @@ const display = {
 
 const logo = ( props ) => (
     <div className = {classes.Logo} style={props.show ? null : display}>    
-        <Navbar.Brand href="#home" >
+        <Navbar.Brand href="/" onClick={props.click}>
             <img
                 src={searchLogo}
                 alt="Search"
                 width={props.width}
                 height={props.height}
+                
             />
         </Navbar.Brand>
     </div>

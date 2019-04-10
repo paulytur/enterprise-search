@@ -13,22 +13,21 @@ const navigationTop = ( props ) => (
 
     <div className={classes.NavigationTop} >
         <Navbar sticky="top" >
-            <Col sm={12} md={1} >
+            <div className={classes.NavigationTopLogo}>
                 <Logo 
                 width='91px' 
                 height='30px'
-                show = {props.show}/>
-            </Col>
+                show = {props.show}
+                click = {props.click}/>
+            </div>
             <Col sm={12} md={10}>
                 <Form inline onSubmit={props.submit} style={props.show ? null : display}>
                     <FormControl type="text" 
-                        onChange={props.change} />
+                        onChange={props.change} value={props.value}/>
                 </Form>
             </Col>
-            <Col sm={12} md={1} >
-                <Image
-                    show = {props.show}/>
-            </Col>
+            <Image
+                show = {props.show}/>
         </Navbar>
     </div>
 );

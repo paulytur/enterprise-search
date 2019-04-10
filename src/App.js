@@ -15,7 +15,7 @@ class App extends Component {
         <Aux>
             <Switch>
               <Route exact path='/' component={SearchHome}/>
-              <Route path='/result' component={SearchResult}/>
+              <Route path='/results' component={SearchResult}/>
             </Switch>
         </Aux>
     );

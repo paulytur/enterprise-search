@@ -6,6 +6,11 @@
     width:100%; 
 }
 
+.NavigationTopLogo {
+    width:135px; 
+    padding-left:25px;
+}
+
 .NavigationTop input[type=text]{
     border-radius: 250px;
     height: 45px;

@@ -9,34 +9,45 @@ import NavigationTop from '../../components/Navigation/NavigationTop/NavigationT
 import Aux from '../../hoc/Auxillary/Auxillary'
 
 class SearchHome extends Component { 
+
+    _isMounted = false;
     state = {
         showContent: false,
         showLogo: true,
+        searchTerm: null,
         logs: {
             eventId: null,
             peopleKey: null,
             sessionId: null,
             timeStamp: null
-        }
+        },
+        isSuccess: false
     }
 
-    componentWillMount(){
-        const data = {
-            peopleKey: '1111111',
-            eventId: '1'
-        }
-        axios.post('logs/logEvent', null, 
-        {
-            headers: 
-            {
-                peopleKey: '1111111',
-                eventId: '1'
-            }
-        })
-        .then(response => {
-            alert(response)
-        })
-        .catch(error => console.log(error));
+    LogEvent = () => {
+        axios.post('logs/logEvent', 
+            null, 
+            { 
+                headers: 
+                { 
+                    peopleKey: '1111111',
+                     eventId: '1'
+                }
+            })
+            .then(response => {
+                this.setState({
+                    isSuccess: response.data
+                })
+            })
+            .catch(error => console.log(error));
+
+    }
+        
+    
+
+    componentDidMount(){
+        this.LogEvent();
+        
     }
 
     changeSearchTermHander = (e) => {
@@ -47,19 +58,16 @@ class SearchHome extends Component {
 
     submitSearchTermHandler = (e) => {
         e.preventDefault();
-        axios.get('searches/getvaluebysearchterm', { 
-            headers: { 
-                searchTerm: this.state.searchTerm
-            }
-        })
-        .then(response => {
-            this.setState({
-                results: response.data.documents,
-                took: response.data.took,
-                count: response.data.total,
-                loading: false
-            });
-        })
+        const queryParams = [];
+        queryParams.push(encodeURIComponent('searchTerm') + '=' + encodeURIComponent(this.state.searchTerm))
+        const queryString = queryParams.join('&')
+        
+        if(this.state.searchTerm != null){
+            this.props.history.push({
+                pathname: '/results',
+                search: '?' + queryString
+            })
+        }
     }
 
     render() {
@@ -69,9 +77,10 @@ class SearchHome extends Component {
                     show={this.state.showContent}
                 />
                 <Home 
-                    click = {this.changeSearchTermHander}
-                    change = {this.submitSearchTermHandler}
-                    show={this.state.showLogo}/>
+                    submit = {this.submitSearchTermHandler}
+                    change = {this.changeSearchTermHander}
+                    show = {this.state.showLogo}
+                    click = {this.submitSearchTermHandler} />
             </Aux>
         );
     }

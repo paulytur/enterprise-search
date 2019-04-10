@@ -22,4 +22,26 @@
     padding: 0px 20px; 
     margin-right: 25px;
     background: url('../../assets/googlemic_color_24dp.png') no-repeat scroll 540px 9px;
+    border: 1px solid #dfe1e5;
+}
+
+.HomeInput input[type=text]:focus{
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+    border-color: rgba(223,225,229,0)
+}
+
+.HomeButton {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    transform: translateY(350%);
+}
+
+.HomeButton button{
+    color: #222;
+    border-color: none;
+    background-color:#f2f2f2;
+    border-color:#f2f2f2;
 }

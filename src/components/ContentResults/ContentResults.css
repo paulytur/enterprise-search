@@ -1,5 +1,7 @@
 .ContentResult {
     padding-left: 165px;
+    margin: 20px 0px;
+    width: 750px
 }
 
 .ContentResult p {
@@ -9,16 +11,19 @@
 .ContentResult p a{
     color: #1a0dab;
     font-size: 18px;
+    margin:0px;
 }
 
 .ContentResult p span{
     color: #006621;
     font-size: 12px;
+
 }
 
 .ZeroResult {
     padding-left: 150px;
-    color: black
+    color: black;
+    width: 750px
 }
 
 .ZeroResult ul li{
