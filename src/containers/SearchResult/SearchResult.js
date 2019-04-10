@@ -29,7 +29,6 @@ class SearchResult extends Component {
                 count: response.data.total,
                 loading: false
             });
-            // console.log(response.documents)
         })
     }
 
@@ -37,8 +36,6 @@ class SearchResult extends Component {
         this.setState({
             searchTerm: e.target.value
         });
-
-        console.log(this.state.searchTerm);
     }
 
     submitSearchTermHandler = (e) => {
