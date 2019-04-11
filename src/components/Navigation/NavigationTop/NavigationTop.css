@@ -17,10 +17,17 @@
     width: 630px;
     padding: 0px 20px; 
     margin-right: 25px;
+
 }
 
 
 .NavigationTop input[type=text]:hover{
-    box-shadow: 2px 2px 2px #cccccc ;
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+    border-color: rgba(223,225,229,0)
+}
+
+.NavigationTop input[type=text]:focus{
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+    border-color: rgba(223,225,229,0)
 }
 
